@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExerciseApp.Properties
+namespace MyBookApp.Properties
 {
 
 
