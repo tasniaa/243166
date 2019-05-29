@@ -203,29 +203,34 @@ namespace CustomerAccountApp
           
             try
             {
-               
-                for (int index = 0; index < accountNos.Count; index++)
-                {
-                     int accountno;
-                accountno = Convert.ToInt32(accountNoTextBox.Text);
-                accountNos.Add(accountno);
-                int amount;
-                    if (accountNos[index].ToString() != accountNumberTextBox.Text)
-                    {
-                        MessageBox.Show("Invalid account number");
-                        return;
-                    }
-                    if (accountNos[index].ToString() == accountNumberTextBox.Text)
-                    {
-                        amount = Convert.ToInt32(amountTextBox.Text);
-                        balances[index] += amount;
-                        MessageBox.Show("Account number : " + accountNos[index] + "\n" + "Balance is: " + balances[index]);
-                        return;
-                    }
 
+                int indexvalue = 0;
+                if (String.IsNullOrEmpty(accountNumberTextBox.Text))
+                {
+                    MessageBox.Show("Please enter valid account number");
+                    return;
+                }
+                if (AccountNoExists(Convert.ToInt32(accountNoTextBox.Text)))
+                {
+                    for (int index = 0; index < accountNumbers.Count; index++)
+                    {
+                        if (accountNoTextBox.Text == accountNumbers[index].ToString())
+                        {
+                            indexvalue = index;
+                        }
+                    }
+                    int balance = balances[indexvalue];
+                    int amount = Convert.ToInt32(amountTextBox.Text);
+                    balances[indexvalue] += amount;
+                    MessageBox.Show("Account number : " + accountNoTextBox.Text + "\n" + "Balance is: " + balances[indexvalue]);
+                    amountTextBox.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid account number!!");
+                    return;
                 }
             }
-
 
             catch (Exception exception)
             {
@@ -237,36 +242,34 @@ namespace CustomerAccountApp
 
         private void balanceButton_Click(object sender, EventArgs e)
         {
-           
-                try
+            try
                 {
-                    int accountno;
-                    for (int index = 0; index < accountNos.Count; index++)
+               
+                int indexvalue = 0;
+                if(String.IsNullOrEmpty(accountNumberTextBox.Text))
+                {
+                    MessageBox.Show("Please enter valid account number");
+                    return;
+                }
+                if (AccountNoExists(Convert.ToInt32(accountNoTextBox.Text)))
+                {
+                    for (int index = 0; index < accountNumbers.Count; index++)
                     {
-                        accountno = Convert.ToInt32(accountNoTextBox.Text);
-                        accountNos.Add(accountno);
-                        if (accountNos[index].ToString() != accountNumberTextBox.Text)
+                        if (accountNoTextBox.Text == accountNumbers[index].ToString())
                         {
-                            MessageBox.Show("Invalid account number");
-                            return;
+                            indexvalue = index;
                         }
-                        if (accountNos[index].ToString() == accountNumberTextBox.Text)
-                    {
-
-                        MessageBox.Show("Account number : " + accountNos[index]+ "\n" + "Balance is: " + balances[index]);
-                        
-                        index++;
-                        return;
                     }
-                    if (accountNos[index].ToString() != accountNumberTextBox.Text)
-                    {
-                        MessageBox.Show("Invalid account number");
+                    int balance = balances[indexvalue];
+                    MessageBox.Show("Account number : " + accountNoTextBox.Text + "\n" + "Balance is: " + balances[indexvalue]);
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid account number!!");
                         return;
                     }
                 }
-                }
-
-            
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
@@ -280,37 +283,45 @@ namespace CustomerAccountApp
            
             try
             {
-                int accountno;
-              
-              
-                int amount;
-                for (int index = 0; index < accountNos.Count; index++)
+
+               
+                if (String.IsNullOrEmpty(accountNumberTextBox.Text))
                 {
-                    accountno = Convert.ToInt32(accountNoTextBox.Text);
-                    accountNos.Add(accountno);
-                    if (accountNos[index].ToString() != accountNumberTextBox.Text)
+                    MessageBox.Show("Please enter valid account number");
+                    return;
+                }
+                if (AccountNoExists(Convert.ToInt32(accountNoTextBox.Text)))
+                {
+                    int indexvalue = 0;
+                    for (int index = 0; index < accountNumbers.Count; index++)
                     {
-                        MessageBox.Show("Invalid account number");
+                        if (accountNoTextBox.Text == accountNumbers[index].ToString())
+                        {
+                            indexvalue = index;
+                        }
+                    }
+                    int balance = balances[indexvalue];
+                    int amount = Convert.ToInt32(amountTextBox.Text);
+                    if (amount > balances[indexvalue])
+                    {
+
+                        MessageBox.Show("Not sufficient balance for withdraw.please check balance!!");
+                        amountTextBox.Clear();
                         return;
                     }
-                    if (accountNos[index].ToString() == accountNumberTextBox.Text)
+                    if (amount < balances[indexvalue])
                     {
-                        amount = Convert.ToInt32(amountTextBox.Text);
-                        if ( amount> balances[index])
-                        {
 
-                            MessageBox.Show("Not sufficient balance for withdraw.please check balance!!");
-                            return;
-                        }
-                        if ( amount<balances[index])
-                        {
-                            balances[index] -= amount;
-                            MessageBox.Show("Account number : " + accountNos[index] + "\n" + "Balance is: " + balances[index]);
-                            return;
-                        }
-
+                        balances[indexvalue] -= amount;
+                        MessageBox.Show("Account number : " + accountNoTextBox.Text + "\n" + "Balance is: " + balances[indexvalue]);
+                        amountTextBox.Clear();
+                        return;
                     }
-                    index++;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid account number!!");
+                    return;
                 }
             }
 
