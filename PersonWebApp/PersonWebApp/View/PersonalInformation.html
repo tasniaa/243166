@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstram Form With Validation</title>
+    <style>
+        #mainContent {
+            top: 0px;
+            height: 35px;
+            width: 100%;
+            background-color: cornflowerblue;
+            text-align: center;
+            font-size: large;
+            font-family: Verdana;
+        }
+
+        footer {
+            bottom: 0px;
+            height: 25px;
+            width: 100%;
+            background-color: cornflowerblue;
+            text-align: center;
+            position: absolute;
+        }
+    </style>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div id="maincontent">
+            <h1 class="col-md-12" style="height: 50px;  width: 100%; background-color: cornflowerblue; text-align:center ">Bootstrap Horizontal Form </h1>
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputFirstName3" class="col-sm-2 col-form-label ">First Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control " id="inputFirstName3" placeholder="First Name" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please Provide Valid First Name!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputLastName3" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputLastName3" placeholder="Last Name" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please Provide Valid Last Name!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Email" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please Provide Valid Email!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Must be 8-20 characters long!
+                </small>
+
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputAddress3" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputAddress3" placeholder="1234 Main St" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please Provide Valid Address!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputAddress23" class="col-sm-2 col-form-label">Address2</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputAddress23" placeholder="Apartment, studio, or floor" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please Provide Valid Address!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputCity3" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputCity3" placeholder="City" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please provide a valid city!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label for="inputState3" class="col-sm-2 col-form-label">State</label>
+                <div class="col-sm-6">
+                    <select id="inputState3" class="form-control" required>
+                        <option value="">Choose..</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please provide a valid state!
+                </small>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <label id="inputZip" class="col-sm-2 col-form-label">Zip</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control " id="inputZip" placeholder="Zip" aria-describedby="inputGroupPrepend" required>
+                </div>
+                <small id="passwordHelpInline" class="text-danger">
+                    Please provide a valid zip!
+                </small>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row " style="font-family: Verdana; font-size: large">
+                <div class="col-sm-12" style="text-align: center">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                </div>
+            </div>
+        </form>
+        <script>
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </div>
+    <footer> </footer>
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+</body>
+</html>
