@@ -99,4 +99,7 @@ SELECT  UPPER(ProductName) As ProductName FROM Product
 2.31: Get all product name is in lower case from product table
 SELECT  LOWER(ProductName) As ProductName FROM Product 
  List all columns of all tables in a database
+ Select distinct QTY from Product p1 where 5=
+(Select count(distinct QTY) from Product p2 where p1.QTY<=p2.QTY)
  SELECT * From Category,Product
+ SELECT 'foo' AS bar UNION ALL SELECT 'foo' AS bar
